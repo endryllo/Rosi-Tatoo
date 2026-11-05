@@ -6,6 +6,21 @@
 <meta name="theme-color" content="#0c0b0a">
 <meta name="description" content="Tatuagem autoral em preto e cinza em Xapuri, Acre. Conheça o portfólio da Rosiane e peça seu orçamento.">
 <title>Rosi Tattoo — traços delicados, arte definida</title>
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="icon" href="favicon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<!-- Link preview (WhatsApp, Instagram, Facebook). If the site moves to its own domain, update these two URLs. -->
+<meta property="og:type" content="website">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:site_name" content="Rosi Tattoo">
+<meta property="og:title" content="Rosi Tattoo — traços delicados, arte definida">
+<meta property="og:description" content="Tatuagem autoral em preto e cinza em Xapuri, Acre. Veja o portfólio e peça seu orçamento pelo WhatsApp.">
+<meta property="og:url" content="https://endryllo.github.io/Rosi-Tatoo/">
+<meta property="og:image" content="https://endryllo.github.io/Rosi-Tatoo/preview.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Rosi Tattoo — tatuagem em preto e cinza">
+<meta name="twitter:card" content="summary_large_image">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
@@ -337,7 +352,7 @@ h2 em,h1 em{font-style:italic;font-weight:300;color:var(--accent)}
   <section class="section about" id="sobre">
     <div class="shell about-inner">
       <div class="about-media reveal">
-        <video src="WhatsApp Video 2026-11-02 at 12.54.01.mp4" muted loop playsinline autoplay preload="metadata" aria-label="Vídeo do estúdio de tatuagem"></video>
+        <video data-src="WhatsApp Video 2026-11-02 at 12.54.01.mp4" muted loop playsinline preload="none" aria-label="Vídeo do estúdio de tatuagem"></video>
         <span class="about-tag">O estúdio</span>
       </div>
       <div class="about-copy reveal">
@@ -598,6 +613,11 @@ if('IntersectionObserver' in window){
 const clip=document.querySelector('.about-media video');
 clip.muted=true;clip.volume=0;
 clip.addEventListener('volumechange',()=>{if(!clip.muted||clip.volume>0){clip.muted=true;clip.volume=0}});
+// Only download the video (≈5 MB) when the visitor gets near it, and pause it off screen
+const startClip=()=>{if(!clip.src){clip.src=encodeURI(clip.dataset.src)}clip.play().catch(()=>{})};
+if('IntersectionObserver' in window){
+  new IntersectionObserver(([en])=>{en.isIntersecting?startClip():clip.pause()},{rootMargin:'300px 0px'}).observe(clip);
+}else startClip();
 
 // WhatsApp links with a ready message
 const waMessage=encodeURIComponent('Olá, Rosiane! Vim pelo site e gostaria de pedir um orçamento.');

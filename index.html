@@ -4,6 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="theme-color" content="#0c0b0a">
+<meta name="format-detection" content="telephone=no">
 <meta name="description" content="Tatuagem autoral em preto e cinza em Xapuri, Acre. Conheça o portfólio da Rosiane e peça seu orçamento.">
 <title>Rosi Tattoo — traços delicados, arte definida</title>
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
@@ -88,7 +89,7 @@ h2 em,h1 em{font-style:italic;font-weight:300;color:var(--accent)}
 .footer-links .ig-icon{width:15px;height:15px}
 
 /* Hero */
-.hero{position:relative;min-height:max(700px,100svh);display:flex;flex-direction:column;padding-top:76px;overflow:hidden;isolation:isolate}
+.hero{position:relative;min-height:max(700px,100vh);min-height:max(700px,100svh);display:flex;flex-direction:column;padding-top:76px;overflow:hidden;isolation:isolate}
 /* faint column guides + soft glow behind the artwork */
 .hero:before{content:'';position:absolute;inset:0;z-index:-1;pointer-events:none;background:
   radial-gradient(ellipse 50% 60% at 78% 45%,#c9a96e14,transparent 70%),
@@ -144,7 +145,7 @@ h2 em,h1 em{font-style:italic;font-weight:300;color:var(--accent)}
 .tile img.loaded{opacity:1;transform:none}
 .tile:after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,transparent 55%,#000a);opacity:0;transition:opacity .4s}
 .tile-info{position:absolute;z-index:1;left:14px;right:14px;bottom:12px;display:flex;justify-content:flex-end;align-items:center;font-size:12px;letter-spacing:.08em;color:#fff;opacity:0;transform:translateY(8px);transition:opacity .4s,transform .4s var(--ease)}
-.tile-info i{display:grid;place-items:center;width:30px;height:30px;border-radius:50%;background:#ffffff26;backdrop-filter:blur(6px);font-style:normal}
+.tile-info i{display:grid;place-items:center;width:30px;height:30px;border-radius:50%;background:#ffffff26;backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);font-style:normal}
 @media (hover:hover){
   .tile:hover img{transform:scale(1.04)}
   .tile:hover:after,.tile:hover .tile-info{opacity:1;transform:none}
@@ -165,7 +166,7 @@ h2 em,h1 em{font-style:italic;font-weight:300;color:var(--accent)}
 .about-inner{display:grid;grid-template-columns:.9fr 1.1fr;gap:clamp(48px,8vw,110px);align-items:center}
 .about-media{position:relative;border-radius:var(--radius);overflow:hidden;aspect-ratio:4/5;background:var(--bg-3)}
 .about-media video{width:100%;height:100%;object-fit:cover;filter:grayscale(.2) contrast(1.02)}
-.about-tag{position:absolute;left:16px;top:16px;padding:7px 12px;border-radius:99px;background:#0c0b0ab3;backdrop-filter:blur(8px);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#d8d6ce}
+.about-tag{position:absolute;left:16px;top:16px;padding:7px 12px;border-radius:99px;background:#0c0b0ab3;backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#d8d6ce}
 .about-copy h2{margin:18px 0 28px}
 .about-copy p{color:var(--muted);max-width:520px;margin:0 0 18px}
 .about-copy p strong{color:var(--text);font-weight:500}
@@ -207,13 +208,13 @@ h2 em,h1 em{font-style:italic;font-weight:300;color:var(--accent)}
 @media (hover:hover){.wa:hover{transform:scale(1.06)}}
 
 /* Lightbox */
-.lightbox{position:fixed;inset:0;z-index:50;display:none;background:#080807f5;backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);touch-action:pan-y}
+.lightbox{position:fixed;inset:0;z-index:50;display:none;background:#080807f5;backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);touch-action:pan-y pinch-zoom;overscroll-behavior:contain}
 .lightbox.open{display:grid;grid-template-rows:auto 1fr;animation:lb-in .3s ease}
 .lb-bar{display:flex;justify-content:space-between;align-items:center;padding:18px 24px;font-size:12px;letter-spacing:.14em;color:var(--muted)}
 .lb-bar b{color:var(--text);font-weight:600}
 .lb-close{width:44px;height:44px;display:grid;place-items:center;border-radius:50%;box-shadow:inset 0 0 0 1px var(--line-2)}
 .lb-stage{position:relative;display:grid;place-items:center;padding:0 80px 32px;min-height:0}
-.lb-stage img{max-width:100%;max-height:calc(100svh - 120px);object-fit:contain;border-radius:8px;transition:opacity .25s}
+.lb-stage img{max-width:100%;max-height:calc(100vh - 120px);max-height:calc(100svh - 120px);object-fit:contain;border-radius:8px;transition:opacity .25s}
 .lb-stage img.loading{opacity:.3}
 .lb-arrow{position:absolute;top:50%;translate:0 -50%;width:52px;height:52px;display:grid;place-items:center;border-radius:50%;background:#ffffff10;box-shadow:inset 0 0 0 1px var(--line-2);transition:background .2s}
 .lb-arrow.prev{left:20px}.lb-arrow.next{right:20px}
@@ -265,7 +266,7 @@ h2 em,h1 em{font-style:italic;font-weight:300;color:var(--accent)}
   .lb-stage{padding:0 12px 80px}
   .lb-arrow{top:auto;bottom:18px;translate:none}
   .lb-arrow.prev{left:calc(50% - 64px)}.lb-arrow.next{right:calc(50% - 64px)}
-  .lb-stage img{max-height:calc(100svh - 170px)}
+  .lb-stage img{max-height:calc(100vh - 190px);max-height:calc(100svh - 170px)}
 }
 </style>
 </head>
@@ -570,11 +571,13 @@ function openLightbox(i){
   lastFocus=document.activeElement;
   show(i);
   lb.classList.add('open');
+  document.documentElement.style.overflow='hidden';
   document.body.style.overflow='hidden';
   document.getElementById('lbClose').focus();
 }
 function closeLightbox(){
   lb.classList.remove('open');
+  document.documentElement.style.overflow='';
   document.body.style.overflow='';
   if(lastFocus)lastFocus.focus();
 }
@@ -614,7 +617,8 @@ const clip=document.querySelector('.about-media video');
 clip.muted=true;clip.volume=0;
 clip.addEventListener('volumechange',()=>{if(!clip.muted||clip.volume>0){clip.muted=true;clip.volume=0}});
 // Only download the video (≈5 MB) when the visitor gets near it, and pause it off screen
-const startClip=()=>{if(!clip.src){clip.src=encodeURI(clip.dataset.src)}clip.play().catch(()=>{})};
+const startClip=()=>{if(!clip.src){clip.src=encodeURI(clip.dataset.src)}clip.play().then(()=>{clip.controls=false}).catch(()=>{clip.controls=true})};
+// iPhone in Low Power Mode blocks autoplay: show the play button so the box isn't just black
 if('IntersectionObserver' in window){
   new IntersectionObserver(([en])=>{en.isIntersecting?startClip():clip.pause()},{rootMargin:'300px 0px'}).observe(clip);
 }else startClip();
